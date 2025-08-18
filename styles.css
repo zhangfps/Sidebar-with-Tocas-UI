@@ -1,0 +1,113 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  background-image: url(img/background/xxx.png);
+  background-size: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.main-layout {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+}
+
+.sidenav {
+  width: 15%;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  opacity: 70%;
+  transition: opacity 0.2s;
+}
+
+.sidenav:hover {
+  opacity: 100%;
+}
+
+.sidebar-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-title {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.sidebar-title-accordion {
+  text-align: center;
+}
+
+details {
+  align-self: center;
+  padding-right: 2rem;
+}
+
+.sidebar-menu {
+  flex: 1;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.main-content {
+  flex: 1;
+  padding: 0.5rem;
+  opacity: 85%;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: url(img/background/star-bg.png);
+    background-size: 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  z-index: 0;
+}
+@media (prefers-color-scheme: dark) {
+  body::before {
+    display: none;
+  }
+}
+
+.custom-footer {
+  text-align: center;
+  background: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  .custom-footer {
+    background: #2f2f2f;
+    color: #f9f9f9;
+  }
+}
+
+.dribbble-box {
+  margin-bottom: 0.5rem;
+}
+
+.content-inside {
+  padding: 3rem;
+  border-radius: 8px;
+}

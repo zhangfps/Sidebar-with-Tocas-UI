@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio 😁</title>
+    <!-- 核心：Tocas UI -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/5.0.2/tocas.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/5.0.2/tocas.min.js"></script>
+
+    <!-- 字體：Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 啟用：響應式設計 -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="main-layout ts-grid is-center-aligned is-stretched">
+      <div class="sidenav column is-3-wide">
+        <div class="ts-box sidebar-box">
+          <!-- Standard Menu -->
+
+          <h2 class="sidebar-title">
+            <span class="ts-icon is-book-icon"></span>
+          </h2>
+          <div class="ts-menu is-end-icon is-separated sidebar-menu">
+            <div class="ts-box">
+              <a href="../index.html" class="item"
+                >Home <span class="ts-icon is-house-icon"></span
+              ></a>
+            </div>
+            <div class="ts-box">
+              <a href="about.html" class="item"
+                >Whois <span class="ts-icon is-user-icon"></span
+              ></a>
+            </div>
+            <div class="ts-box">
+              <a href="projects.html" class="item"
+                >Projects <span class="ts-icon is-diagram-project-icon"></span
+              ></a>
+            </div>
+            <div class="ts-box">
+              <a href="storyful.html" class="item is-active"
+                >Storyful <span class="ts-icon is-book-icon"></span
+              ></a>
+            </div>
+            <div class="ts-box">
+              <a href="misc.html" class="item"
+                >Misc <span class="ts-icon is-gears-icon"></span
+              ></a>
+            </div>
+
+            <!-- Socials -->
+
+            <div id="socials-section"></div>
+            <script>
+              fetch("socials.html")
+                .then((response) => response.text())
+                .then((html) => {
+                  document.getElementById("socials-section").innerHTML = html;
+                });
+            </script>
+
+            <!-- Might fix in the future, idk -->
+            <!-- <details class="ts-accordion" closed>
+              <summary>
+                <h2 class="sidebar-title-accordion">Socials!</h2>
+              </summary>
+              <a class="item is-external-link" href="#" target="_blank"
+                >Facebook <span class="ts-icon is-facebook-icon"></span
+              ></a>
+              <a class="item is-external-link" href="#" target="_blank"
+                >Instagram <span class="ts-icon is-instagram-icon"></span
+              ></a>
+              <a class="item is-external-link" href="#" target="_blank"
+                >LinkedIn <span class="ts-icon is-linkedin-icon"></span
+              ></a>
+              <a class="item is-external-link" href="#" target="_blank"
+                >GitHub <span class="ts-icon is-github-icon"></span
+              ></a>
+              <a class="item is-external-link" href="#" target="_blank"
+                >Outlook <span class="ts-icon is-envelope-icon"></span
+              ></a>
+              <a class="item is-external-link" href="#" target="_blank"
+                >Dribbble <span class="ts-icon is-dribbble-icon"></span
+              ></a>
+            </details> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN BODY BELOW THIS PART -->
+
+      <div class="main-content column is-fluid">
+        <div class="ts-box is-raised">
+          <div class="ts-content">
+            <div class="ts-header is-start-aligned is-massive">Hey there!</div>
+            <div class="ts-text">Text</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER BELOW THIS PART -->
+
+    <footer class="ts-footer custom-footer">
+      <div class="ts-content is-secondary is-dense">
+        <span class="ts-text"
+          ><a class="ts-text" href="https://matias.me/nsfw/" target="_blank"
+            >Dominic Noe</a
+          >
+          &copy; 2025</span
+        >
+        <div class="ts-text is-center">
+          Made with
+          <a
+            class="ts-text is-external-link"
+            href="https://tocas-ui.com/5.0/en-us/index.html"
+            target="_blank"
+            >Tocas UI</a
+          >
+          and ♥
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
