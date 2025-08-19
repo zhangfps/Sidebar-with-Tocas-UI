@@ -63,7 +63,7 @@ details {
 .main-content {
   flex: 1;
   padding: 0.5rem;
-  opacity: 85%;
+  opacity: 90%;
 }
 
 @media (prefers-color-scheme: dark) {
