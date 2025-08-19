@@ -33,9 +33,12 @@
         <div class="ts-box sidebar-box">
           <!-- Standard Menu -->
 
+          <!-- Header Icon -->
           <h2 class="sidebar-title">
             <span class="ts-icon is-gears-icon"></span>
           </h2>
+
+          <!-- MENU -->
           <div class="ts-menu is-end-icon is-separated sidebar-menu">
             <div class="ts-box">
               <a href="../index.html" class="item"
@@ -62,17 +65,24 @@
                 >Misc <span class="ts-icon is-gears-icon"></span
               ></a>
             </div>
+            <div class="ts-box">
+              <a href="socials.html" class="item"
+                >Socials <span class="ts-icon is-hashtag-icon"></span
+              ></a>
+            </div>
 
-            <!-- Socials -->
-
-            <div id="socials-section"></div>
+            <!-- Socials section can be found someplace else. I'm lazy updating every
+            single page that's why I did this. What this does is basically call
+            the html I made in a separate file. This is to reflect the changes
+            from the file across all webpages. Lazy. -->
+            <!-- <div id="socials-section"></div>
             <script>
-              fetch("socials.html")
+              fetch("pages/socials.html")
                 .then((response) => response.text())
                 .then((html) => {
                   document.getElementById("socials-section").innerHTML = html;
                 });
-            </script>
+            </script> -->
 
             <!-- Might fix in the future, idk -->
             <!-- <details class="ts-accordion" closed>
@@ -99,42 +109,77 @@
               ></a>
             </details> -->
           </div>
+
+          <!-- <div class="ts-divider"></div> -->
+
+          <div id="music-section" style="padding: 0.5rem"></div>
+          <script>
+            fetch("music.html")
+              .then((response) => response.text())
+              .then((html) => {
+                document.getElementById("music-section").innerHTML = html;
+                // After injecting, add play/pause logic
+                const img = document.querySelector(
+                  "#music-section .ts-image img"
+                );
+                const audio = document.querySelector("#music-section audio");
+                if (img && audio) {
+                  img.style.cursor = "pointer";
+                  img.addEventListener("click", function () {
+                    if (audio.paused) {
+                      audio.play();
+                    } else {
+                      audio.pause();
+                    }
+                  });
+                }
+              });
+          </script>
         </div>
       </div>
 
       <!-- MAIN BODY BELOW THIS PART -->
 
-      <div class="main-content column is-fluid">
+      <div class="main-content column is-9-wide">
         <div class="ts-box is-raised">
-          <div class="ts-content">
+          <div class="ts-content content-inside">
             <div class="ts-header is-start-aligned is-massive">Hey there!</div>
-            <div class="ts-text">Text</div>
+            <div class="ts-text is-justify-aligned">
+              Text<br />Lorem ipsum dolor sit, amet consectetur adipisicing
+              elit. Eveniet, sint mollitia totam porro laborum voluptas
+              excepturi, eligendi illum neque reprehenderit ipsa omnis quas,
+              amet ipsum. Quis provident consequatur tenetur dolore, sunt
+              possimus, laudantium molestias minus cupiditate, adipisci quas.
+              Veniam distinctio asperiores odit ipsam et? Porro, quisquam
+              aliquam magni ducimus exercitationem consequuntur alias!
+              Voluptatum quis tempore commodi, iusto in, nemo optio odit culpa
+              exercitationem sunt eveniet? Nemo aspernatur optio illo vitae sed.
+              Illo facere magni quod quasi debitis consectetur unde pariatur
+              possimus? Vel quas culpa est possimus consequuntur eius,
+              consequatur molestias aliquam provident laboriosam ipsam doloribus
+              incidunt accusamus dicta dolorem placeat voluptas accusantium? Eos
+              tempore nemo dolores possimus vero itaque quam illo facilis,
+              placeat quaerat eum maiores et! Tempora architecto at doloribus
+              consectetur quae sit natus repudiandae sapiente tempore atque,
+              impedit veniam in quos quis quaerat odit aut ipsa nostrum incidunt
+              quidem nulla molestiae reprehenderit suscipit? Voluptatem ipsa
+              consequatur ad magnam minima et facere consequuntur nihil hic
+              cumque qui debitis sint nobis assumenda dolor officia, deserunt
+              vel nemo eos repellat, error nostrum cum accusantium! Unde, eaque
+              facilis quas illo porro voluptatibus voluptatem adipisci
+              laboriosam provident. Dolore eligendi neque sequi doloremque,
+              itaque totam ducimus. Suscipit accusamus accusantium magnam dolor
+              temporibus unde reiciendis quisquam exercitationem ipsum nobis,
+              facere dignissimos, mollitia quis optio similique, fugit culpa
+              aliquid odit sint cum tempora sit. Exercitationem placeat
+              reprehenderit in quae ea incidunt repellendus, ratione earum
+              labore, non nesciunt quisquam cumque porro quidem nobis quam
+              delectus. Enim repellendus, corporis a magnam ut assumenda impedit
+              sequi dicta doloribus saepe.
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- FOOTER BELOW THIS PART -->
-
-    <footer class="ts-footer custom-footer">
-      <div class="ts-content is-secondary is-dense">
-        <span class="ts-text"
-          ><a class="ts-text" href="https://matias.me/nsfw/" target="_blank"
-            >Dominic Noe</a
-          >
-          &copy; 2025</span
-        >
-        <div class="ts-text is-center">
-          Made with
-          <a
-            class="ts-text is-external-link"
-            href="https://tocas-ui.com/5.0/en-us/index.html"
-            target="_blank"
-            >Tocas UI</a
-          >
-          and ♥
-        </div>
-      </div>
-    </footer>
   </body>
 </html>

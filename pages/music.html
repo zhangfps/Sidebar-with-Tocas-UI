@@ -25,42 +25,44 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
-    <footer class="ts-footer custom-footer">
-      <div class="ts-grid is-middle-aligned is-center-aligned">
-        <!-- Column 1 | Music -->
+    <div class="ts-grid is-middle-aligned is-center-aligned">
+      <!-- Column 1 | Music -->
+      <!-- <div
+        class="column is-4-wide is-center-aligned"
+        style="margin-top: 0.25rem; margin-bottom: 0.25rem"
+      > -->
+      <div class="ts-box is-raised">
         <div
-          class="column is-4-wide is-center-aligned"
-          style="margin-top: 0.25rem; margin-bottom: 0.25rem"
+          class="ts-content"
+          style="padding-left: 0.25rem; padding-right: 0.25rem"
         >
-          <div class="ts-box is-horizontal is-raised">
-            <div class="ts-image is-covered is-1-by-1">
-              <img
-                src="https://i.ytimg.com/vi/LamNB1zr138/maxresdefault.jpg"
-                width="100"
-                height="100%"
-              />
-            </div>
-            <div
-              class="ts-content"
-              style="padding-left: 0.25rem; padding-right: 0.25rem"
-            >
-              <div class="ts-text">7 P.M. - Animal Crossing: New Leaf</div>
-              <audio controls autoplay>
-                <source
-                  src="../audio/7 P.M. - Animal Crossing_ New Leaf - Extended music.mp3"
-                  type="audio/mpeg"
-                />
-                Your browser does not support the audio element.
-              </audio>
-            </div>
+          <div class="ts-text is-description is-center-aligned">
+            7 PM | Animal Crossing: New Leaf
           </div>
+          <audio autoplay>
+            <source
+              src="../audio/7 P.M. - Animal Crossing_ New Leaf - Extended music.mp3"
+              type="audio/mpeg"
+            />
+            Your browser does not support the audio element.
+          </audio>
         </div>
+        <div class="ts-divider"></div>
+        <div class="ts-image is-covered is-1-by-1" style="padding: 0.5rem">
+          <img
+            src="https://i.ytimg.com/vi/LamNB1zr138/maxresdefault.jpg"
+            width="100%"
+            height="100%"
+          />
+        </div>
+      </div>
+      <!-- </div> -->
 
-        <!-- Column 2 | Actual Footer-->
-        <!-- <div class="column is-fluid is-center-aligned">
+      <!-- Column 2 | Actual Footer-->
+      <!-- <div class="column is-fluid is-center-aligned">
           <div class="ts-content is-secondary is-dense">
             <span class="ts-text"
               ><a class="ts-text" href="https://matias.me/nsfw/" target="_blank"
@@ -80,7 +82,6 @@
             </div>
           </div>
         </div> -->
-      </div>
-    </footer>
+    </div>
   </body>
 </html>
