@@ -38,36 +38,54 @@
           </h2>
           <div class="ts-menu is-end-icon is-separated sidebar-menu">
             <div class="ts-box">
-              <a href="index.html" class="item is-active"
+              <a href="#" class="item is-active" data-page="home.html"
                 >Home <span class="ts-icon is-house-icon"></span
               ></a>
             </div>
             <div class="ts-box">
-              <a href="pages/about.html" class="item"
+              <a href="#" class="item" data-page="about.html"
                 >Whois <span class="ts-icon is-user-icon"></span
               ></a>
             </div>
             <div class="ts-box">
-              <a href="pages/projects.html" class="item"
+              <a href="#" class="item" data-page="projects.html"
                 >Projects <span class="ts-icon is-diagram-project-icon"></span
               ></a>
             </div>
             <div class="ts-box">
-              <a href="pages/storyful.html" class="item"
+              <a href="#" class="item" data-page="storyful.html"
                 >Storyful <span class="ts-icon is-book-icon"></span
               ></a>
             </div>
             <div class="ts-box">
-              <a href="pages/misc.html" class="item"
+              <a href="#" class="item" data-page="misc.html"
                 >Misc <span class="ts-icon is-gears-icon"></span
               ></a>
             </div>
             <div class="ts-box">
-              <a href="pages/socials.html" class="item"
+              <a href="#" class="item" data-page="socials.html"
                 >Socials <span class="ts-icon is-hashtag-icon"></span
               ></a>
             </div>
 
+            <!-- NAVIGATION SCRIPT -->
+            <script>
+              document
+                .querySelectorAll(".sidebar-menu .item")
+                .forEach((link) => {
+                  link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const page = link.getAttribute("data-page");
+                    if (!page) return;
+                    fetch("pages/" + page)
+                      .then((res) => res.text())
+                      .then((html) => {
+                        document.querySelector(".main-content").innerHTML =
+                          html;
+                      });
+                  });
+                });
+            </script>
             <!-- Socials section can be found someplace else. I'm lazy updating every
             single page that's why I did this. What this does is basically call
             the html I made in a separate file. This is to reflect the changes
@@ -138,44 +156,14 @@
       <!-- MAIN BODY BELOW THIS PART -->
 
       <div class="main-content column is-9-wide">
-        <div class="ts-box is-raised">
-          <div class="ts-content content-inside">
-            <div class="ts-header is-start-aligned is-massive">Hey there!</div>
-            <div class="ts-text is-justify-aligned">
-              Text<br />Lorem ipsum dolor sit, amet consectetur adipisicing
-              elit. Eveniet, sint mollitia totam porro laborum voluptas
-              excepturi, eligendi illum neque reprehenderit ipsa omnis quas,
-              amet ipsum. Quis provident consequatur tenetur dolore, sunt
-              possimus, laudantium molestias minus cupiditate, adipisci quas.
-              Veniam distinctio asperiores odit ipsam et? Porro, quisquam
-              aliquam magni ducimus exercitationem consequuntur alias!
-              Voluptatum quis tempore commodi, iusto in, nemo optio odit culpa
-              exercitationem sunt eveniet? Nemo aspernatur optio illo vitae sed.
-              Illo facere magni quod quasi debitis consectetur unde pariatur
-              possimus? Vel quas culpa est possimus consequuntur eius,
-              consequatur molestias aliquam provident laboriosam ipsam doloribus
-              incidunt accusamus dicta dolorem placeat voluptas accusantium? Eos
-              tempore nemo dolores possimus vero itaque quam illo facilis,
-              placeat quaerat eum maiores et! Tempora architecto at doloribus
-              consectetur quae sit natus repudiandae sapiente tempore atque,
-              impedit veniam in quos quis quaerat odit aut ipsa nostrum incidunt
-              quidem nulla molestiae reprehenderit suscipit? Voluptatem ipsa
-              consequatur ad magnam minima et facere consequuntur nihil hic
-              cumque qui debitis sint nobis assumenda dolor officia, deserunt
-              vel nemo eos repellat, error nostrum cum accusantium! Unde, eaque
-              facilis quas illo porro voluptatibus voluptatem adipisci
-              laboriosam provident. Dolore eligendi neque sequi doloremque,
-              itaque totam ducimus. Suscipit accusamus accusantium magnam dolor
-              temporibus unde reiciendis quisquam exercitationem ipsum nobis,
-              facere dignissimos, mollitia quis optio similique, fugit culpa
-              aliquid odit sint cum tempora sit. Exercitationem placeat
-              reprehenderit in quae ea incidunt repellendus, ratione earum
-              labore, non nesciunt quisquam cumque porro quidem nobis quam
-              delectus. Enim repellendus, corporis a magnam ut assumenda impedit
-              sequi dicta doloribus saepe.
-            </div>
-          </div>
-        </div>
+        <script>
+          // Load home.html into main-content on initial page load
+          fetch("pages/home.html")
+            .then((res) => res.text())
+            .then((html) => {
+              document.querySelector(".main-content").innerHTML = html;
+            });
+        </script>
       </div>
     </div>
   </body>
