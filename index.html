@@ -70,21 +70,40 @@
 
             <!-- NAVIGATION SCRIPT -->
             <script>
-              document
-                .querySelectorAll(".sidebar-menu .item")
-                .forEach((link) => {
-                  link.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    const page = link.getAttribute("data-page");
-                    if (!page) return;
-                    fetch("pages/" + page)
-                      .then((res) => res.text())
-                      .then((html) => {
-                        document.querySelector(".main-content").innerHTML =
-                          html;
-                      });
-                  });
+              const iconMap = {
+                "home.html": "is-house-icon",
+                "about.html": "is-user-icon",
+                "projects.html": "is-diagram-project-icon",
+                "storyful.html": "is-book-icon",
+                "misc.html": "is-gears-icon",
+                "socials.html": "is-hashtag-icon",
+              };
+
+              const menuLinks = document.querySelectorAll(
+                ".sidebar-menu .item"
+              );
+              menuLinks.forEach((link) => {
+                link.addEventListener("click", function (e) {
+                  e.preventDefault();
+                  const page = link.getAttribute("data-page");
+                  if (!page) return;
+                  fetch("pages/" + page)
+                    .then((res) => res.text())
+                    .then((html) => {
+                      document.querySelector(".main-content").innerHTML = html;
+                      // Change sidebar icon
+                      const iconSpan = document.querySelector(
+                        ".sidebar-title .ts-icon"
+                      );
+                      if (iconSpan && iconMap[page]) {
+                        iconSpan.className = "ts-icon " + iconMap[page];
+                      }
+                      // Highlight active menu item
+                      menuLinks.forEach((l) => l.classList.remove("is-active"));
+                      link.classList.add("is-active");
+                    });
                 });
+              });
             </script>
             <!-- Socials section can be found someplace else. I'm lazy updating every
             single page that's why I did this. What this does is basically call
