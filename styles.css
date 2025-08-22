@@ -72,6 +72,31 @@ details {
   opacity: 90%;
 }
 
+:root {
+  /* default (light mode) */
+  --navbar-bg: #ffffff;
+  --navbar-shadow: rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --navbar-bg: #000000;
+    --navbar-shadow: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.main-navbar-mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
+  background: var(--navbar-bg);
+  box-shadow: 0 -2px 8px var(--navbar-shadow);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-image: url(img/background/star-bg.webp);
