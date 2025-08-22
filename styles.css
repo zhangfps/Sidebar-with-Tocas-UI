@@ -7,7 +7,7 @@ body {
   background-image: url(img/background/xxx.webp);
   background-size: 200%;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-x, repeat-y;
 }
 
 .main-layout {
@@ -61,6 +61,12 @@ details {
 }
 
 .main-content {
+  flex: 1;
+  padding: 0.5rem;
+  opacity: 90%;
+}
+
+.main-content-mobile {
   flex: 1;
   padding: 0.5rem;
   opacity: 90%;

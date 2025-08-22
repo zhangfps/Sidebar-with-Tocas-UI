@@ -28,7 +28,10 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="main-layout ts-grid is-center-aligned is-stretched is-compact">
+    <!-- Index for Desktop and Widescreen -->
+    <div
+      class="main-layout ts-grid is-center-aligned is-stretched is-compact tablet-:has-hidden"
+    >
       <div class="sidenav column is-3-wide">
         <div class="ts-box sidebar-box">
           <!-- Standard Menu -->
@@ -185,5 +188,91 @@
         </script>
       </div>
     </div>
+    <!-- New Index for Tablet and Mobile -->
+    <div
+      class="main-layout ts-grid is-center-aligned is-stretched is-compact desktop+:has-hidden"
+      style="padding: 0.5rem"
+    >
+      <div class="main-content-mobile column is-16-wide ts-box">
+        <script>
+          // Load home.html into main-content on initial page load
+          fetch("pages/home.html")
+            .then((res) => res.text())
+            .then((html) => {
+              document.querySelector(".main-content-mobile").innerHTML = html;
+            });
+        </script>
+      </div>
+
+      <!-- Bottom Navbar for Mobile -->
+      <div class="main-navbar-mobile column is-16-wide">
+        <div class="ts-app-navbar is-fluid is-indicated" id="mobile-navbar">
+          <!-- <a class="item is-active" data-page="home.html">
+            <span class="ts-icon is-house-icon"></span>
+            <div class="label">Home</div>
+          </a> -->
+          <a class="item" data-page="about.html">
+            <span class="ts-icon is-user-icon"></span>
+            <div class="label">Whois</div>
+          </a>
+          <a class="item" data-page="projects.html">
+            <span class="ts-icon is-diagram-project-icon"></span>
+            <div class="label">Projects</div>
+          </a>
+          <a class="item" data-page="storyful.html">
+            <span class="ts-icon is-book-icon"></span>
+            <div class="label">Storyful</div>
+          </a>
+          <a class="item" data-page="misc.html">
+            <span class="ts-icon is-gears-icon"></span>
+            <div class="label">Misc</div>
+          </a>
+          <a class="item" data-page="socials.html">
+            <span class="ts-icon is-hashtag-icon"></span>
+            <div class="label">Socials</div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Music tap-to-play/pause
+        var img = document.getElementById("music-img-mobile");
+        var audio = document.getElementById("music-audio-mobile");
+        if (img && audio) {
+          img.addEventListener("click", function () {
+            if (audio.paused) {
+              audio.play();
+            } else {
+              audio.pause();
+            }
+          });
+        }
+
+        // Mobile navbar SPA navigation
+        var mobileLinks = document.querySelectorAll(
+          "#mobile-navbar .item[data-page]"
+        );
+        mobileLinks.forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            var page = link.getAttribute("data-page");
+            if (!page) return;
+            fetch("pages/" + page)
+              .then(function (res) {
+                return res.text();
+              })
+              .then(function (html) {
+                document.querySelector(".main-content-mobile").innerHTML = html;
+                // Highlight active menu item
+                mobileLinks.forEach(function (l) {
+                  l.classList.remove("is-active");
+                });
+                link.classList.add("is-active");
+              });
+          });
+        });
+      });
+    </script>
   </body>
 </html>
